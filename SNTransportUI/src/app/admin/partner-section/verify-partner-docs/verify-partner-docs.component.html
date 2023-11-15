@@ -1,0 +1,104 @@
+<div class="col-md-8 offset-md-2" style="margin-top: 25px;">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Verify Documents
+                <button (click)="cancel()" type="button" class="btn btn-primary float-right">Cancel</button>
+            </h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <!-- Self Pic-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="selfPic">Driver's Picture</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=selfPic class="img-fluid rounded imgSize" alt="Self Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.ProfilePicVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'Self')">Approve</button>
+                        <button  type="button" *ngIf="this.response.ProfilePicVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'Self')">Reject</button>
+                    </div>
+                </div>
+                <!-- Aadhar Front-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="aadharFrontPic">Front Picture of Aadhar Card</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=aadharFrontPic class="img-fluid rounded imgSize" alt="Aadhar Front Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.AadharFrontVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'aadharFront')">Approve</button>
+                        <button  type="button" *ngIf="this.response.AadharFrontVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'aadharFront')">Reject</button>
+                    </div>
+                </div>
+                <!-- Aadhar Back-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="aadharBackPic">Back-Side Picture of Aadhar Card</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=aadharBackPic class="img-fluid rounded imgSize" alt="Aadhar Back Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.AadharBackVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'aadharBack')">Approve</button>
+                        <button  type="button" *ngIf="this.response.AadharBackVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'aadharBack')">Reject</button>
+                    </div>
+                </div>
+                <!-- RC Book-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="rcPic">RC Book Picture</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=rcPic class="img-fluid rounded imgSize" alt="RC Book Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.RCVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'RC')">Approve</button>
+                        <button  type="button" *ngIf="this.response.RCVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'RC')">Reject</button>
+                    </div>
+                </div>
+                <!-- Driving Licence-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="drPic">Driving Licence</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=drPic class="img-fluid rounded imgSize" alt="Driving Licence Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.DrivingVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'DR')">Approve</button>
+                        <button  type="button" *ngIf="this.response.DrivingVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'DR')">Reject</button>
+                    </div>
+                </div>
+                <!-- Vehicle front-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="vehicleFrontPic">Front Side Picture of Vehicle</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=vehicleFrontPic class="img-fluid rounded imgSize" alt="Vehicle Front Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.VehicleFrontVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'vehicleFront')">Approve</button>
+                        <button  type="button" *ngIf="this.response.VehicleFrontVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'vehicleFront')">Reject</button>
+                    </div>
+                </div>
+                <!-- Vehicle Back-->
+                <div class="form-group row rowDiv">
+                    <div class="col-3 columnDiv">
+                        <label for="vehicleBackPic">Back Side Picture of Vehicle</label>
+                    </div>
+                    <div class="col-5 columnDiv">
+                        <img [src]=vehicleBackPic class="img-fluid rounded imgSize" alt="Vehicle Back Pic">
+                    </div>
+                    <div class="col-4 buttonDiv">
+                        <button  type="button" *ngIf="this.response.VehicleBackVerified==0" class="btn btn-primary" (click)="UpdateDoc(1,'vehicleBack')">Approve</button>
+                        <button  type="button" *ngIf="this.response.VehicleBackVerified==1" class="btn btn-danger" (click)="UpdateDoc(0,'vehicleBack')">Reject</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

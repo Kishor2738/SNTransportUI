@@ -1,0 +1,42 @@
+<p>
+    <mat-toolbar color="primary">
+      <span class="material-icons" (click)="opened=!opened" style="cursor:pointer;">menu</span> &nbsp;
+      <span>SN Transport</span>
+
+      <div class="spacer"></div>
+      <label style="margin-right:2%">Welcome, {{userDetails.Name}}</label>
+      <a mat-raised-button color="accent" (click)="logOut();">Log Out</a>
+    </mat-toolbar>
+</p>
+
+
+<!-- matListIcon is an attribute -->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" [(opened)]="opened">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['dashboard']}}]">
+        <mat-icon matListIcon>home</mat-icon>Home
+      </mat-list-option>
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['trips']}}]">
+        <mat-icon matListIcon>local_shipping</mat-icon>Trips
+      </mat-list-option>
+      <!--
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['invoice']}}]">
+        <mat-icon matListIcon>download</mat-icon>Download Invoice
+      </mat-list-option>
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['details']}}]">
+        <mat-icon matListIcon>badge</mat-icon>Personal Details
+      </mat-list-option> -->
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['updatePass']}}]">
+        <mat-icon matListIcon>settings</mat-icon>Update Password
+      </mat-list-option>
+      <mat-list-option routerLinkActive="isActive" [routerLink]="['/partner',{outlets:{'partnerHome':['docs']}}]">
+        <mat-icon matListIcon>upload_file</mat-icon>Upload Documents
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet name="partnerHome"></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+

@@ -1,0 +1,52 @@
+<div class="col-md-6 offset-md-3" style="margin-top: 25px;" [formGroup]="formAddOrder">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">New Order</h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <div class="form-group">
+                    <label for="pickUp">Pick-Up Address</label>
+                    <textarea formControlName="pickUp" class="form-control" id="pickUp" rows="3"></textarea>
+                    <small *ngIf="this.formAddOrder.get('pickUp').invalid && this.formAddOrder.get('pickUp').touched" class="text-danger">Pick-Up Address is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination Address</label>
+                    <textarea formControlName="destination" class="form-control" id="destination" rows="3"></textarea>
+                    <small *ngIf="this.formAddOrder.get('destination').invalid && this.formAddOrder.get('destination').touched" class="text-danger">Destination Address is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="recipient">Recipient Name</label>
+                    <input type="text" formControlName="recipient" class="form-control" id="recipient">
+                    <small *ngIf="this.formAddOrder.get('recipient').invalid && this.formAddOrder.get('recipient').touched" class="text-danger">Recipient Name is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="recipientContactNum">Recipient Contact Number</label>
+                    <input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10" formControlName="recipientContact" class="form-control" id="recipientContactNum">
+                    <small *ngIf="this.formAddOrder.get('recipientContact').invalid && this.formAddOrder.get('recipientContact').touched" class="text-danger">Recipient Contact Number is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="pickUpTime">Pickup Date & Time</label>
+                    <input matInput type="datetime-local" formControlName="pickUpTime" class="form-control" id="pickUpTime">
+                    <small *ngIf="this.formAddOrder.get('pickUpTime').invalid && this.formAddOrder.get('pickUpTime').touched" class="text-danger">PickUp Date & Time is Required</small>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6">    
+                        <label for="approxWeight">Approx Weight Of Package (In KG.)</label>
+                        <input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10" formControlName="approxWeight" class="form-control" id="approxWeight">
+                        <small *ngIf="this.formAddOrder.get('approxWeight').invalid && this.formAddOrder.get('approxWeight').touched" class="text-danger">Package Weight is Required</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="vehicleType">Vehicle Type</label>
+                        <input type="text" formControlName="vehicleType" class="form-control" id="vehicleType">
+                        <small *ngIf="this.formAddOrder.get('vehicleType').invalid && this.formAddOrder.get('vehicleType').touched" class="text-danger">Vehicle Type is Required</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button (click)="addOrder()" type="button" class="btn btn-primary float-right">Submit</button>
+                    <button (click)="clearForm()" type="button" class="btn btn-danger float-right">Clear</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

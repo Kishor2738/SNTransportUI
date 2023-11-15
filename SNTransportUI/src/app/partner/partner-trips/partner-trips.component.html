@@ -1,0 +1,48 @@
+<div class="card" style="margin: 1%;">
+
+    <mat-form-field appearance="standard">
+        <mat-label>Enter filter key</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Enter filter key" #input>
+    </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="orderList" matSort>
+          <!-- DestinationAddress Column -->
+          <ng-container matColumnDef="DestinationAddress">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination Address </th>
+            <td mat-cell *matCellDef="let row"> {{row.DestinationAddress}} </td>
+          </ng-container>
+
+          <!-- RecipientName Column -->
+          <ng-container matColumnDef="RecipientName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipient Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.RecipientName}} </td>
+          </ng-container>
+          
+          <!-- RecipientNumber Column -->
+          <ng-container matColumnDef="RecipientNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>RecipientNumber </th>
+            <td mat-cell *matCellDef="let row"> {{row.RecipientNumber}} </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+            <td mat-cell *matCellDef="let row"> 
+              <button (click)="updateOrder(row);" type="button" class="btn btn-success">UPDATE ORDER</button> 
+            </td>
+          </ng-container>
+      
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>

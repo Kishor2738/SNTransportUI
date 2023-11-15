@@ -1,0 +1,24 @@
+<form [formGroup]="trackForm">
+    <div id="forLogin" class="forForms">
+        <div class="form-group">
+            <input formControlName="invoiceNo" type="text" placeholder="Your Invoice No." class="form-control">
+            <small *ngIf="this.trackForm.get('invoiceNo').invalid && this.trackForm.get('invoiceNo').touched" class="text-danger">Invoice No. is Required</small>
+        </div>
+        <div class="form-group centered">
+            <button (click)="track()" type="button" class="btn btn-danger ">TRACK</button>
+        </div>
+        <div class="form-group centered" *ngIf="showTruck">
+            <img src="/assets/images/truck-running-left.gif" style="width: 300px;height:200px" />
+        </div>
+        <div class="form-group textCentered" *ngIf="!showTruck">
+            <h1 style="color: red;" *ngIf="this.shipmentDetails.Status==4">Order has been accepted.</h1>
+            <h1 style="color: red;" *ngIf="this.shipmentDetails.Status==5">Order is in Transit.</h1>
+            <h1 style="color: red;" *ngIf="this.shipmentDetails.Status==6">Order Completed.</h1>
+            <h3 *ngIf="this.shipmentDetails.ActualPickUpTime">PickUp Time: {{this.shipmentDetails.ActualPickUpTime | date:"dd/MM/yyyy hh:mm a"}}</h3>
+        </div>
+        <div class="form-group" *ngIf="!showTruck">
+            <app-order-progress [props]="myProps"></app-order-progress>
+            <br/><br/>
+        </div>
+    </div>
+</form>    

@@ -1,0 +1,5 @@
+.datetime{
+    display: block !important;
+    width: 100% !important;
+    background-clip: padding-box !important;
+}

@@ -1,0 +1,65 @@
+<p>
+  <mat-toolbar color="primary">
+    <span class="material-icons" (click)="opened=!opened" style="cursor:pointer;">menu</span> &nbsp;
+    <span [routerLink]="['/admin',{outlets:{'adminHome':['dashboard']}}]" style="cursor:pointer;">SN Transport</span>
+
+    <div class="spacer"></div>
+    <label style="margin-right:2%">Welcome , {{userDetails.Name}}</label>
+    <a mat-raised-button color="accent" (click)="logOut();">Log Out</a>
+  </mat-toolbar>
+</p>
+
+
+<!-- matListIcon is an attribute -->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" [(opened)]="opened">
+    <mat-selection-list [multiple]="false">
+
+      <!-- ADMIN -->
+      <mat-form-field appearance="fill">
+        <mat-label><mat-icon matListIcon>admin_panel_settings</mat-icon> ADMIN</mat-label>
+        <mat-select #mode value="side">
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['estimates']}}]">Estimates</mat-option>
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['vehicleMaster']}}]">Vehicle Master</mat-option>
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['adminPassword']}}]">Update Password</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- ORDER -->
+      <mat-form-field appearance="fill">
+        <mat-label><mat-icon matListIcon>dvr</mat-icon> ORDER</mat-label>
+        <mat-select #mode value="side">
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['newOrder']}}]">New Order</mat-option>
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['orderList']}}]">Update Order</mat-option>
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['uploadInvoice']}}]">Upload Invoice</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- PARTNER -->
+      <mat-form-field appearance="fill">
+        <mat-label><mat-icon matListIcon>local_shipping</mat-icon> PARTNER</mat-label>
+        <mat-select #mode value="side">
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['verifyPartner']}}]">Verify Partner</mat-option>
+          <!-- <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['updatePartner']}}]">Update Partner Details</mat-option> -->
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['partnerAccess']}}]">Manage Partner Access</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- CUSTOMER -->
+      <mat-form-field appearance="fill">
+        <mat-label><span class="material-icons">people</span> CUSTOMER</mat-label>
+        <mat-select #mode value="side">
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['customerAccess']}}]">Manage Customer Access</mat-option>
+          <mat-option routerLinkActive="isActive" [routerLink]="['/admin',{outlets:{'adminHome':['customerOrder']}}]">Add New Order</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-selection-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet name="adminHome"></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

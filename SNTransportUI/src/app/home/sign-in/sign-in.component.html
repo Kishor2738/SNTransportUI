@@ -1,0 +1,26 @@
+<form [formGroup]="loginform">
+    <p>	
+        <a mat-button (click)="setActive(1);" [ngClass]="partner?'isActive' : ''">For Delivery Partners</a>
+        <a mat-button (click)="setActive(2);" [ngClass]="enterprise?'isActive' : ''">For Enterprise</a>
+    </p>
+
+    <div id="forLogin" class="forForms">
+        <div class="form-group">
+            <input formControlName="email" type="text" placeholder="Email" class="form-control">
+            <small *ngIf="this.loginform.get('email').invalid && this.loginform.get('email').touched" class="text-danger">Email is Required</small>
+        </div>
+        <div class="form-group">
+            <input formControlName="password" type="password" placeholder="Password" class="form-control">
+            <small *ngIf="this.loginform.get('password').invalid && this.loginform.get('password').touched" class="text-danger">Password is Required</small>
+        </div>
+        <div class="form-group" style="float: right;">
+            <button (click)="login()" type="button" class="btn btn-primary">Sign In</button>
+        </div>
+        <div class="clearfix">&nbsp;</div> <!-- Add this line -->
+        <div class="form-group" style="text-align: center;cursor: pointer;color: blue;">
+            <a (click)="forgotPass()">Forgot Password??</a> <span>&nbsp;-&nbsp;</span>
+            <a (click)="sendToRegister()" data-dismiss="modal">Register for SNTransport</a>
+        </div>
+    </div>
+
+</form>

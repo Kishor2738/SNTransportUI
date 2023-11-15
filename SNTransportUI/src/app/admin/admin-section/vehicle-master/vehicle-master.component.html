@@ -1,0 +1,26 @@
+<div style="margin-top: 25px;" [formGroup]="pwVehicleMaster">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">{{title}}</h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <div class="form-group">
+                    <label for="name">Vehicle Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name">
+                    <small *ngIf="this.pwVehicleMaster.get('name').invalid && this.pwVehicleMaster.get('name').touched" class="text-danger">Vehicle Name is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="capacity">Vehicle Capacity (In KG.)</label>
+                    <input type="number" formControlName="capacity" class="form-control" id="capacity">
+                    <small *ngIf="this.pwVehicleMaster.get('capacity').invalid && this.pwVehicleMaster.get('capacity').touched" class="text-danger">Vehicle Capacity is Required</small>
+                </div>
+                <div class="form-group">
+                    <button *ngIf="_vehicleTypeId==0" (click)="addVehicle()" type="button" class="btn btn-primary float-right">Add</button>
+                    <button *ngIf="_vehicleTypeId!=0" (click)="updateVehicle()" type="button" class="btn btn-primary float-right">Update</button>
+                    <button (click)="clearForm()" type="button" class="btn btn-danger float-right">Clear</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

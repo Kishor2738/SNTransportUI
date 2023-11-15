@@ -1,0 +1,9 @@
+<div class="container">
+    <span *ngFor="let item of counts;let i = index">
+        <span class="circles" *ngIf="orderStatus != item"></span>
+        <span class="material-icons md-48" style="color: red;" *ngIf="orderStatus == item">local_shipping</span>
+        <!-- <span class="circle-desc" [class.circle-desc-active]="orderStatus == item">{{ item }}</span> -->
+        <span [ngClass]="props.classType==1?'circle-desc17':'circle-desc21'">{{ item }}</span>
+        <span class="bar" *ngIf="(i != counts.length-1)"></span>
+    </span>
+</div>

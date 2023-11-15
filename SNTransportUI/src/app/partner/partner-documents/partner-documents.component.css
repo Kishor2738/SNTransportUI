@@ -1,0 +1,27 @@
+img{
+    width: 75px;
+    height: 75px;
+    display:block;
+    margin:auto;
+}
+
+  table, th, td{
+    border: 1px solid;
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+.rowDiv{
+    border: 1px solid;
+}
+
+.columnDiv{
+    border: 1px solid;
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    border: 1px solid;
+}

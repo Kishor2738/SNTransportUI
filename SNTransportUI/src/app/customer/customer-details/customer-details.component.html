@@ -1,0 +1,30 @@
+<div class="col-md-6 offset-md-3" style="margin-top: 25px;" [formGroup]="pwCustomerDetails">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Update Personal Details</h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" class="form-control">
+                    <small *ngIf="this.pwCustomerDetails.get('name').invalid && this.pwCustomerDetails.get('name').touched" class="text-danger">Name is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="number">Contact Number</label>
+                    <input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="10" formControlName="number" class="form-control" id="number">
+                    <small *ngIf="this.pwCustomerDetails.get('number').invalid && this.pwCustomerDetails.get('number').touched" class="text-danger">Contact No is Required</small>
+                </div>
+                <div class="form-group">
+                    <label for="mail">Email</label>
+                    <input type="text" formControlName="mail" class="form-control">
+                    <small *ngIf="this.pwCustomerDetails.get('mail').invalid && this.pwCustomerDetails.get('mail').touched" class="text-danger">Email is Required</small>
+                </div>
+                <div class="form-group">
+                    <button (click)="updateDetails()" type="button" class="btn btn-primary float-right">Update</button>
+                    <button (click)="clearForm()" type="button" class="btn btn-danger float-right">Reset</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

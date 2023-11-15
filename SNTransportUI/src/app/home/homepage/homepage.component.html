@@ -1,0 +1,82 @@
+<form [formGroup]="exform">
+
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="/assets/images/test_700_262.jpg" alt="image" style="width: 100%;">
+    </div>
+    <div class="carousel-caption">
+      <h3>Hassel Free Booking</h3>
+      <p>Make hassel free bookings online as per your convenience.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="/assets/images/test_700_262.jpg" alt="image" style="width: 100%;">
+    </div>
+    <div class="carousel-caption">
+      <h3>Value For Money</h3>
+      <p>We offer best services at copetetive prices.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="/assets/images/test_700_262.jpg" alt="image" style="width: 100%;">
+    </div>
+    <div class="carousel-caption">
+      <h3>Reliable Services</h3>
+      <p>Book with us and relax, we will take care of all your requirements.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<!-- Estimates -->
+<div name="forEstimate" style="padding: 1%;" class="row" *ngIf="!showAlert">
+  <div class="form-group col">
+    <textarea formControlName="pickup" class="form-control" rows="1" placeholder="PickUp Address"></textarea>
+    <small *ngIf="this.exform.get('pickup').invalid && this.exform.get('pickup').touched" class="text-danger">PickUp Address is Required</small> 
+  </div>
+  <div class="form-group col">
+    <textarea formControlName="drop" class="form-control" rows="1" placeholder="Destination Address"></textarea>
+    <small *ngIf="this.exform.get('drop').invalid && this.exform.get('drop').touched" class="text-danger">Destination Address Required</small> 
+  </div>
+  <div class="form-group col">
+    <input formControlName="phone" type="text" placeholder="Mobile Number" class="form-control" maxlength="10">
+    <small *ngIf="this.exform.get('phone').invalid && this.exform.get('phone').touched" class="text-danger">Mobile Number is Required</small> 
+  </div>
+  <div class="form-group col">
+    <input formControlName="name" type="text" class="form-control" placeholder="Name">
+    <small *ngIf="this.exform.get('name').invalid && this.exform.get('name').touched" class="text-danger">Name is Required</small>
+  </div>
+  <div class="form-group col">
+    <button (click)="getEstimate()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Get Estimate</button>
+  </div>
+</div>
+
+<div style="padding: 1%;font-size: large;" *ngIf="showAlert">
+<ngb-alert type="primary" (closed)="closedAlert();">Thanks for showing your interest. Sit back and Relax our associates will reach to you soon.</ngb-alert>
+</div>
+
+
+<div style="text-align: center;background-color: beige;">
+
+  <h1 style="color: blue;font-weight: inherit;">How We Operate ?</h1>
+
+  <ol class="c-stepper">
+    <li class="c-stepper__item">
+      <span class="material-icons md-60">computer</span>
+        <p class="c-stepper__desc">Order Online</p>
+    </li>
+    <li class="c-stepper__item">
+      <span class="material-icons md-60">local_shipping</span>
+        <p class="c-stepper__desc">Get Vehicle At Your Doorstep</p>
+    </li>
+    <li class="c-stepper__item">
+      <span class="material-icons md-60">sentiment_satisfied_alt</span>
+        <p class="c-stepper__desc">Get Order Deliverd On Time</p>
+    </li>
+    <!-- Other steps -->
+  </ol>
+  <!--Below closing div marks End of How we Operate -->
+</div>
+</form>

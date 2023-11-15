@@ -1,0 +1,30 @@
+<p>
+    <mat-toolbar color="primary">
+      <span>SN Transport</span>
+
+      <div class="spacer"></div>
+      <a mat-button class="mat-button1" (click)="openTrackOrder();">Track Order</a>
+      <a mat-raised-button color="accent" (click)="openSignIn();">Sign In/Sign Up</a>
+    </mat-toolbar>
+</p>
+<p>	
+  <a mat-button (click)="setActive(1);" [ngClass]="home?'isActive' : ''">Home</a>
+  <a mat-button (click)="setActive(2);" [ngClass]="partner?'isActive' : ''">For Delivery Partners</a>
+  <a mat-button (click)="setActive(3);" [ngClass]="enterprise?'isActive' : ''">For Enterprise</a>
+  <a mat-button (click)="setActive(4);" [ngClass]="support?'isActive' : ''">Support</a>
+</p>
+
+<div id="container">
+<app-homepage *ngIf="home"></app-homepage>
+<app-for-partners *ngIf="partner"></app-for-partners>
+<app-for-enterprise *ngIf="enterprise"></app-for-enterprise>
+<app-support-page *ngIf="support"></app-support-page>
+</div>
+
+
+<!-- Footer Section -->
+<footer class="bg-dark text-center text-white">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    A Product By KishorSoft
+  </div>
+</footer>

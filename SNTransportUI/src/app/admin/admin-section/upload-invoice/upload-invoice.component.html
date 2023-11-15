@@ -1,0 +1,57 @@
+<div class="col-md-8 offset-md-2" style="margin-top: 25px;" [formGroup]="pwInvoice">
+    <div class="card card-outline-secondary">
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <div class="form-group row">
+                    <div class="col-7">
+                        <label for="invoiceNo">Invoice No</label>
+                        <input type="text" formControlName="invoiceNo" class="form-control" id="invoiceNo">
+                        <small
+                            *ngIf="this.pwInvoice.get('invoiceNo').invalid && this.pwInvoice.get('invoiceNo').touched"
+                            class="text-danger">Invoice No is Required</small>
+                    </div>
+                    <div class="col-5 centerButton">
+                        <button type="button" class="btn btn-primary" (click)="GetDetais();">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div style="margin: 25px;" *ngIf="showDetails">
+    <div class="card card-outline-secondary">
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <!-- Self Pic-->
+                <div class="form-group row rowDiv">
+                    <div class="col-6 columnDiv">
+                        <label for="selfPic">Upload Invoice Picture</label>
+                        <input type="file" #self class="form-control" accept="image/png,image/jpeg" id="selfPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=invoiceDocPic class="img-fluid rounded imgSize" alt="Self Pic">
+                    </div>
+                    <div class="col-3 buttonDiv">
+                        <button type="button" class="btn btn-danger" (click)="UploadFiles(self.files,'invoice')">Upload</button> &nbsp;
+                        <a class="btn btn-dark" [href]="this.invoiceDocPic" target="_blank">View</a>
+                    </div>
+                </div>
+                <!-- Aadhar Front-->
+                <div class="form-group row rowDiv">
+                    <div class="col-6 columnDiv">
+                        <label for="aadharFrontPic">Upload Delivery Challan Picture</label>
+                        <input type="file" #aadharFront class="form-control" accept="image/png,image/jpeg"
+                            id="aadharFrontPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=deliveryChalanDocPic class="img-fluid rounded imgSize" alt="Aadhar Front Pic">
+                    </div>
+                    <div class="col-3 buttonDiv">
+                        <button type="button" class="btn btn-danger" (click)="UploadFiles(self.files,'delivery');">Upload</button> &nbsp;
+                        <a class="btn btn-dark" [href]="this.deliveryChalanDocPic" target="_blank">View</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

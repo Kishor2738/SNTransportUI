@@ -1,0 +1,15 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+.isActive{
+    text-underline-position: under;
+    text-decoration: underline;
+    font-size: medium;
+    color: blue;
+    text-decoration-thickness: 15%;
+}
+
+.mat-button1:hover {
+    color: white;
+  }

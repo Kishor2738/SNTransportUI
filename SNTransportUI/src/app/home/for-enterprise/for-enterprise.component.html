@@ -1,0 +1,104 @@
+<div class="row" style="padding: 4%;">
+    <div class="col-md-8" style="text-align: center;background-color: white;">
+        <div class="container">
+
+	
+            <div class="row mbr-justify-content-center">
+    
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">currency_rupee</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Best <span>Prices</span></h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">local_shipping</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Reliable
+                                <span>Service</span>
+                            </h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">local_shipping</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Launch
+                                <span>A Unique Project</span>
+                            </h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">manage_accounts</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Relationship Manager</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+    
+                
+    
+                
+            </div>
+    
+    </div>
+    
+    </div>
+    <div class="col-md-4 card" [formGroup]="enterpriseform">
+        <div id="forEnterprise" class="forForms">
+            <div class="form-group">
+                <input formControlName="compname" type="text" placeholder="Company Name" class="form-control">
+                <small *ngIf="this.enterpriseform.get('compname').invalid && this.enterpriseform.get('compname').touched" class="text-danger">Company Name is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="name" type="text" placeholder="Contact Person's Name" class="form-control">
+                <small *ngIf="this.enterpriseform.get('name').invalid && this.enterpriseform.get('name').touched" class="text-danger">Name is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="phone" type="text" placeholder="Contact Person's Mobile Number" class="form-control" maxlength="10">
+                <small *ngIf="this.enterpriseform.get('phone').invalid && this.enterpriseform.get('phone').touched" class="text-danger">Mobile No is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="mail" type="text" placeholder="Contact Person's Email" class="form-control">
+                <small *ngIf="this.enterpriseform.get('mail').invalid && this.enterpriseform.get('mail').touched" class="text-danger">Email is Required</small>
+            </div>
+            <div class="form-group">
+                <select formControlName="trips" (change)="changeTrips($event)" class="form-control">
+                    <option value="null" disabled selected>Choose Monthly Trips</option>
+                    <option *ngFor="let trip of TripList" [value]="trip">{{ trip }}</option>
+                </select>
+                <small *ngIf="this.enterpriseform.get('trips').invalid && this.enterpriseform.get('trips').touched" class="text-danger">Please select estimated trips in a month.</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="password" type="password" placeholder="Password" class="form-control">
+                <small *ngIf="this.enterpriseform.get('password').invalid && this.enterpriseform.get('password').touched" class="text-danger">Password is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="cpassword" type="password" placeholder="Confirm Password" class="form-control">
+                <small *ngIf="this.enterpriseform.get('cpassword').value != this.enterpriseform.get('password').value" class="text-danger">Password did not match.</small>
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button (click)="clearForm()" type="button" class="btn btn-danger">Clear</button> &nbsp;&nbsp;
+                <button (click)="register()" type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

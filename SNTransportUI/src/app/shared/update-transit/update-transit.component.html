@@ -1,0 +1,27 @@
+<div style="margin-top: 25px;" [formGroup]="pwTransitUpdate">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Update Transit Details
+                <button (click)="cancel()" type="button" class="btn btn-primary float-right">Cancel</button>
+            </h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <div class="form-group">
+                    <label for="inputHours">Remaining Hours</label>
+                    <input type="number" formControlName="remainingHour" class="form-control" id="inputHours">
+                    <small *ngIf="this.pwTransitUpdate.get('remainingHour').invalid && this.pwTransitUpdate.get('remainingHour').touched" class="text-danger">Remaining Hours is Required.</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputRemark">Remark</label>
+                    <input type="text" formControlName="remark" class="form-control" id="inputRemark">
+                    <small *ngIf="this.pwTransitUpdate.get('remark').invalid && this.pwTransitUpdate.get('remark').touched" class="text-danger">Remark is Required.</small>
+                </div>
+                <div class="form-group">
+                    <button (click)="addUpdate()" type="button" class="btn btn-primary float-right">Submit</button>
+                    <button (click)="clearForm()" type="button" class="btn btn-danger float-right">Clear</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

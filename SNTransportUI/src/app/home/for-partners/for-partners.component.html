@@ -1,0 +1,92 @@
+<div class="row" style="padding: 4%;">
+    <div class="col-md-8" style="text-align: center;background-color: white;">
+        <div class="container">
+
+	
+            <div class="row mbr-justify-content-center">
+    
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">history_toggle_off</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">On-Time Settelment</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">local_shipping</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Regular Work</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">currency_rupee</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Better Earning Opportunity</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="material-icons md-48">manage_accounts</span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Relationship Manager</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                    </div>
+                </div>
+    
+                
+    
+                
+            </div>
+    
+    </div>
+    
+    </div>
+
+
+    <!-- This div is for Registration Form -->
+    <div class="col-md-4 card" [formGroup]="partnerform">
+        <div id="forDelivery" class="forForms">
+            <div class="form-group">
+                <input formControlName="name" type="text" placeholder="Name" class="form-control">
+                <small *ngIf="this.partnerform.get('name').invalid && this.partnerform.get('name').touched" class="text-danger">Name is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="phone" type="text" placeholder="Mobile Number" class="form-control" maxlength="10">
+                <small *ngIf="this.partnerform.get('phone').invalid && this.partnerform.get('phone').touched" class="text-danger">Mobile No is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="mail" type="text" placeholder="Email" class="form-control">
+                <small *ngIf="this.partnerform.get('mail').invalid && this.partnerform.get('mail').touched" class="text-danger">Email is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="password" type="password" placeholder="Password" class="form-control">
+                <small *ngIf="this.partnerform.get('password').invalid && this.partnerform.get('password').touched" class="text-danger">Password is Required</small>
+            </div>
+            <div class="form-group">
+                <input formControlName="cpassword" type="password" placeholder="Confirm Password" class="form-control">
+                <small *ngIf="this.partnerform.get('cpassword').value != this.partnerform.get('password').value" class="text-danger">Password did not match.</small>
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button (click)="clearForm()" type="button" class="btn btn-danger">Clear</button> &nbsp;&nbsp;
+                <button (click)="register()" type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

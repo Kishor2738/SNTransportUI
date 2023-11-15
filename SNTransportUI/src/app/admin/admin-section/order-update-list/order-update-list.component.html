@@ -1,0 +1,56 @@
+<div class="card" style="margin: 1%;">
+
+    <mat-form-field appearance="standard">
+        <mat-label>Enter filter key</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Enter filter key" #input>
+    </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="orderList" matSort>
+      
+          <!-- InvoiceNo Column -->
+          <ng-container matColumnDef="InvoiceNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> InvoiceNo </th>
+            <td mat-cell *matCellDef="let row"> {{row.InvoiceNo}} </td>
+          </ng-container>
+      
+          <!-- Partner Column -->
+          <ng-container matColumnDef="Partner Details">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Partner Details </th>
+            <td mat-cell *matCellDef="let row">{{row.PartnerName}} ({{row.PartnerNo}}) </td>
+          </ng-container>
+      
+          <!-- Recipient Column -->
+          <ng-container matColumnDef="Recipent Details">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipent Details </th>
+            <td mat-cell *matCellDef="let row">{{row.RecipientName}} ({{row.RecipientNumber}}) </td>
+          </ng-container>
+      
+          <!-- Destination_Address Column -->
+          <ng-container matColumnDef="Destination_Address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination Address </th>
+            <td mat-cell *matCellDef="let row"> {{row.DestinationAddress}} </td>
+          </ng-container>
+  
+          <!-- Actions Column -->
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row"> 
+              <button (click)="addUpdate(row);" type="button" class="btn btn-dark">Update</button> &nbsp;
+              <button *ngIf="row.Balance!=0" (click)="addPayment(row);" type="button" class="btn btn-info">Payment</button>
+              <button *ngIf="row.Balance==0" (click)="confirmCompletion(row);" type="button" class="btn btn-danger">Complete</button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>

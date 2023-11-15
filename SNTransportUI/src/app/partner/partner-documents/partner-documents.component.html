@@ -1,0 +1,102 @@
+<div class="col-md-8 offset-md-2" style="margin-top: 25px;">
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Upload Documents</h3>
+        </div>
+        <div class="card-body">
+            <form class="form forContentForms" role="form" autocomplete="off">
+                <!-- Self Pic-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="selfPic">Upload Your Picture</label>
+                        <input type="file" #self class="form-control" accept="image/png,image/jpeg" id="selfPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=selfPic class="img-fluid rounded imgSize" alt="Self Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(self.files,'Self')">Update</button>
+                    </div>
+                </div>
+                <!-- Aadhar Front-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="aadharFrontPic">Upload Front Picture of Aadhar Card</label>
+                        <input type="file" #aadharFront class="form-control" accept="image/png,image/jpeg" id="aadharFrontPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=aadharFrontPic class="img-fluid rounded imgSize" alt="Aadhar Front Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(aadharFront.files,'aadharFront')">Update</button>
+                    </div>
+                </div>
+                <!-- Aadhar Back-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="aadharBackPic">Upload Back-Side Picture of Aadhar Card</label>
+                        <input type="file" #aadharBack class="form-control" accept="image/png,image/jpeg" id="aadharBackPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=aadharBackPic class="img-fluid rounded imgSize" alt="Aadhar Back Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(aadharBack.files,'aadharBack')">Update</button>
+                    </div>
+                </div>
+                <!-- RC Book-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="rcPic">Upload RC Book Picture</label>
+                        <input type="file" #rc class="form-control" accept="image/png,image/jpeg" id="rcPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=rcPic class="img-fluid rounded imgSize" alt="RC Book Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(rc.files,'RC')">Update</button>
+                    </div>
+                </div>
+                <!-- Driving Licence-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="drPic">Upload Your Driving Licence</label>
+                        <input type="file" #DR class="form-control" accept="image/png,image/jpeg" id="drPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=drPic class="img-fluid rounded imgSize" alt="Driving Licence Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(DR.files,'DR')">Update</button>
+                    </div>
+                </div>
+                <!-- Vehicle front-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="vehicleFrontPic">Upload Front Side Picture of Vehicle</label>
+                        <input type="file" #vehicleFront class="form-control" accept="image/png,image/jpeg" id="vehicleFrontPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=vehicleFrontPic class="img-fluid rounded imgSize" alt="Vehicle Front Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(vehicleFront.files,'vehicleFront')">Update</button>
+                    </div>
+                </div>
+                <!-- Vehicle Back-->
+                <div class="form-group row rowDiv">
+                    <div class="col-7 columnDiv">
+                        <label for="vehicleBackPic">Upload Back Side Picture of Vehicle</label>
+                        <input type="file" #vehicleBack class="form-control" accept="image/png,image/jpeg" id="vehicleBackPic">
+                    </div>
+                    <div class="col-3 columnDiv">
+                        <img [src]=vehicleBackPic class="img-fluid rounded imgSize" alt="Vehicle Back Pic">
+                    </div>
+                    <div class="col-2 buttonDiv">
+                        <button  type="button" class="btn btn-primary" (click)="UploadFiles(vehicleBack.files,'vehicleBack')">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

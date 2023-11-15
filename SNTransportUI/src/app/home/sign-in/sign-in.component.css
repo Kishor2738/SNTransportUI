@@ -1,0 +1,11 @@
+.isActive{
+    text-underline-position: under;
+    text-decoration: underline;
+    font-size: medium;
+    color: blue;
+    text-decoration-thickness: 15%;
+}
+
+.input{
+    padding: auto;
+}

@@ -1,0 +1,47 @@
+.spacer{
+  flex: 1 1 auto;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  width: 20%;
+  background: #0f172a;
+}
+
+.isActive{
+  background-color: blue;
+}
+
+mat-label{
+  color: white;
+  font-size: x-large;
+}
+
+.mat-option:hover{
+  background-color: blue;
+}
+
+::ng-deep .mat-select-arrow{
+  color: white !important;
+}
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: white !important;
+}
+
+
