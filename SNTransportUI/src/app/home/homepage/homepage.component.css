@@ -37,7 +37,7 @@
       max-width: 600px;
       position: relative;
     }
-    h1:before {
+    /* h1:before {
       content: "";
       display: block;
       width: 130px;
@@ -56,4 +56,4 @@
       right: 0;
       top: 50%;
       position: absolute;
-    }
+    } */

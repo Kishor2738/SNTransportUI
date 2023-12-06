@@ -3,6 +3,7 @@ import {MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AppService } from '../app.service';
 import { TrackOrderComponent } from '../shared/track-order/track-order.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   enterprise:boolean=false;
   support:boolean=false;
 
-  constructor(private dialog:MatDialog,private appService:AppService) {
+  constructor(private dialog:MatDialog,private appService:AppService,private router:Router) {
     this.appService._signUpType.subscribe(this.GetSignUpType);
    }
 
@@ -62,6 +63,8 @@ export class HomeComponent implements OnInit {
     this.dialog.closeAll();
   }
   
-
+  adminLogin(){
+    this.router.navigate(['/adminLogin']);
+  }
 
 }
