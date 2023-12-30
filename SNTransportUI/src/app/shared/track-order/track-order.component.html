@@ -16,9 +16,34 @@
             <h1 style="color: red;" *ngIf="this.shipmentDetails.Status==6">Order Completed.</h1>
             <h3 *ngIf="this.shipmentDetails.ActualPickUpTime">PickUp Time: {{this.shipmentDetails.ActualPickUpTime | date:"dd/MM/yyyy hh:mm a"}}</h3>
         </div>
-        <div class="form-group" *ngIf="!showTruck">
+        <!-- <div class="form-group" *ngIf="!showTruck">
             <app-order-progress [props]="myProps"></app-order-progress>
             <br/><br/>
-        </div>
+        </div> -->
+        <div class="mat-elevation-z8" style="margin-top: 1%;">
+            <table mat-table [dataSource]="transitGrid" matSort>
+          
+              <!-- Date Column -->
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
+              </ng-container>
+          
+              <!-- Remark Column -->
+              <ng-container matColumnDef="Remark">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Remark </th>
+                <td mat-cell *matCellDef="let row"> {{row.Remark}} </td>
+              </ng-container>
+          
+              <!-- RemainingHours Column -->
+              <ng-container matColumnDef="RemainingHours">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                <td mat-cell *matCellDef="let row"> {{row.RemainingHours}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
     </div>
 </form>    

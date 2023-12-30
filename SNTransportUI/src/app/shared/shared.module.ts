@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -35,6 +35,7 @@ import { OrderProgressComponent } from './order-progress/order-progress.componen
     MatSortModule,
     MatTableModule,
     MatDialogModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class SharedModule { }

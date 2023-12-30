@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup,FormControl,Validators} from '@angular/forms';
 import { SharedComponentService } from '../shared-component.service';
 import { AppService } from '../../app.service';
 import swal from 'sweetalert2'; 
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-track-order',
@@ -11,7 +16,13 @@ import swal from 'sweetalert2';
 })
 export class TrackOrderComponent implements OnInit {
 
-  constructor(private sharedComponentService:SharedComponentService,private appService:AppService) { 
+  displayedColumns: string[] = ['Date', 'Remark', 'RemainingHours'];
+  public transitGrid:any=null;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private sharedComponentService:SharedComponentService,private appService:AppService,private datePipe: DatePipe) { 
     this.appService._TrackOrderFrom.subscribe(this.CheckClass);
   }
 
@@ -53,7 +64,7 @@ export class TrackOrderComponent implements OnInit {
             this.shipmentDetails=res;
             this.myProps = { status: res.Status, classType: this.classType };
             this.showTruck=false;
-            //this.ShowDetails(formData);
+            this.ShowDetails(formData);
           }
         }
       });
@@ -65,7 +76,14 @@ export class TrackOrderComponent implements OnInit {
   {
     this.sharedComponentService.GetTransitDetails(formData).subscribe({
       next:(res)=>{
-        this.transitDetails=res;
+        //this.transitDetails=res;
+        res.forEach(element => {
+          element.Date=element.AdminUpdatedOn!="0001-01-01T00:00:00"?this.datePipe.transform(element.AdminUpdatedOn, 'dd/MM/yyyy'):this.datePipe.transform(element.PartnerUpdatedOn, 'dd/MM/yyyy');
+        });
+        this.transitGrid=new MatTableDataSource(res);
+        
+        this.transitGrid.paginator = this.paginator;
+        this.transitGrid.sort = this.sort;
       }
     });
   }

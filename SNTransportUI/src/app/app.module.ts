@@ -21,6 +21,7 @@ import { SignInComponent } from './home/sign-in/sign-in.component';
 import { Appsettings } from './appsettings';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
       showForeground:true,
     })
   ],
-  providers: [Appsettings],
+  providers: [Appsettings,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
